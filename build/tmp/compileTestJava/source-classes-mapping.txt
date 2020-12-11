@@ -1,2 +1,0 @@
-de/tcpshield/tcpshieldapi/TestABC.java
- de.tcpshield.tcpshieldapi.TestABC
