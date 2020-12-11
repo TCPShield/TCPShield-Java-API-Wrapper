@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tcpshield.tcpshieldapi.TestABC" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-11T23:46:59" hostname="PAUL" time="2.576">
+  <properties/>
+  <testcase name="test()" classname="de.tcpshield.tcpshieldapi.TestABC" time="2.576"/>
+  <system-out><![CDATA[[NetworkImpl{id=283, name='UnicaCity', premium=false, protectedCNAME='0ad5f3cf182165919d87522626526f4d.ipv4.tcpshield.com', txtVerification='tcpshield-network-verification=/VXSQzh8h7oMa+i8qsFYohR2uUtO6gNDGTbhI+csjaL1zzJp91F+MovrOTXNBHMIQ6AiLqrvAgy9wXO7I2jHNg==', mitigationSettings=MitigationSettingsImpl{connectionsPerSecondThreshold=5, clientBanSeconds=60, clientAllowSeconds=600, mitigationMessage='{"text":"Â§7Â§m------------------------------------------------------\nÂ§aDeine Verbindung wurde verifiziert.\nÂ§fDu kannst dich nun neu anmelden.\nÂ§7Â§m-----------------------------------------------------"}'}, updatedAt=Thu Nov 12 23:43:41 CET 2020, createdAt=Thu Feb 11 21:32:31 CET 2021}, NetworkImpl{id=420, name='Homeserver & Vanilla server', premium=false, protectedCNAME='91bb3c713f7d8b624e59170b331a8438.ipv4.tcpshield.com', txtVerification='tcpshield-network-verification=IV1tCDt/A2fQfp3oWL758pEd9fkrXBJhnm3UBVuBGf+G24yr7f6B6SLRiKnPmaGmMBDaihrTI1luDmEbC3tfrQ==', mitigationSettings=MitigationSettingsImpl{connectionsPerSecondThreshold=5, clientBanSeconds=60, clientAllowSeconds=600, mitigationMessage='{"text":"Â§7Â§m------------------------------------------------------
+Â§aYour connection has been verified, you may now re-connect.
+Â§fDDoS protection by Â§bÂ§nTCPShield.com
+Â§7Â§m-----------------------------------------------------"}'}, updatedAt=Thu Nov 12 18:43:41 CET 2020, createdAt=Thu Feb 11 21:32:34 CET 2021}, NetworkImpl{id=3938, name='Test', premium=false, protectedCNAME='82cf79a99ffdbabd3ff90176e4fcc25f.ipv4.tcpshield.com', txtVerification='tcpshield-network-verification=CBTYJOUCVUJKOI357U74NOKW22CTTRIZAIALMWFJOKROC4WOAFC4NR4ZD3W7ZI3XPW2KTPEZ44AACPZEJ2KULBJATTMQT6AWN2CODDA=', mitigationSettings=MitigationSettingsImpl{connectionsPerSecondThreshold=5, clientBanSeconds=60, clientAllowSeconds=600, mitigationMessage='{"text":"Â§7Â§m------------------------------------------------------
+Â§aYour connection has been verified, you may now re-connect.
+Â§fDDoS protection by Â§bÂ§nTCPShield.com
+Â§7Â§m-----------------------------------------------------"}'}, updatedAt=Sat Dec 11 22:47:41 CET 2021, createdAt=Sat Dec 11 22:47:41 CET 2021}]
+domains = [DomainImpl{id=1358, name='unicacity.de', backendSetID=1358, bac=false, verified=true, updatedAt=Thu Feb 11 21:32:31 CET 2021, createdAt=Thu Feb 11 21:32:31 CET 2021}]
+backendSets = [BackendSetImpl{id=1358, name='unicacity.de set', backends=[]}]
+bsReal = BackendSetImpl{id=0, name='unicacity.de set', backends=[149.202.223.216:25565]}
+domains = [DomainImpl{id=1694, name='homeserver.fuzzlemann.de', backendSetID=1694, bac=false, verified=true, updatedAt=Thu Feb 11 21:32:34 CET 2021, createdAt=Thu Feb 11 21:32:34 CET 2021}, DomainImpl{id=1695, name='server.paul-zhang.de', backendSetID=1695, bac=false, verified=true, updatedAt=Thu Feb 11 21:32:34 CET 2021, createdAt=Thu Feb 11 21:32:34 CET 2021}]
+backendSets = [BackendSetImpl{id=1694, name='homeserver.fuzzlemann.de set', backends=[]}, BackendSetImpl{id=1695, name='server.paul-zhang.de set', backends=[]}]
+bsReal = BackendSetImpl{id=0, name='homeserver.fuzzlemann.de set', backends=[79.245.31.66:25565]}
+bsReal = BackendSetImpl{id=0, name='server.paul-zhang.de set', backends=[164.68.110.88:25560]}
+domains = []
+backendSets = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
