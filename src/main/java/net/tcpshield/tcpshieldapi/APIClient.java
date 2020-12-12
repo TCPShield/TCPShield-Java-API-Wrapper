@@ -1,6 +1,9 @@
 package net.tcpshield.tcpshieldapi;
 
 import net.tcpshield.tcpshieldapi.request.*;
+import net.tcpshield.tcpshieldapi.response.BackendSetPostResponse;
+import net.tcpshield.tcpshieldapi.response.DomainPostResponse;
+import net.tcpshield.tcpshieldapi.response.NetworkPostRepsonse;
 
 import java.util.List;
 
@@ -8,10 +11,10 @@ public interface APIClient {
 
     List<Network> getNetworks();
 
-    void addNetwork(NetworkPostRequest request);
+    NetworkPostRepsonse addNetwork(NetworkPostRequest request);
 
-    default void addNetwork(String name) {
-        addNetwork(new NetworkPostRequest(name));
+    default NetworkPostRepsonse addNetwork(String name) {
+        return addNetwork(new NetworkPostRequest(name));
     }
 
     Network getNetwork(int id);
@@ -30,10 +33,10 @@ public interface APIClient {
 
     List<Domain> getDomains(int networkID);
 
-    void addDomain(int networkID, DomainPostRequest request);
+    DomainPostResponse addDomain(int networkID, DomainPostRequest request);
 
-    default void addDomain(int networkID, String name, int setID, boolean bac) {
-        addDomain(networkID, new DomainPostRequest(name, setID, bac));
+    default DomainPostResponse addDomain(int networkID, String name, int setID, boolean bac) {
+        return addDomain(networkID, new DomainPostRequest(name, setID, bac));
     }
 
     Domain getDomain(int networkID, int domainID);
@@ -56,10 +59,10 @@ public interface APIClient {
 
     List<BackendSet> getBackendSets(int networkID);
 
-    void addBackendSet(int networkID, BackendSetPostRequest request);
+    BackendSetPostResponse addBackendSet(int networkID, BackendSetPostRequest request);
 
-    default void addBackendSet(int networkID, String name, String... backends) {
-        addBackendSet(networkID, new BackendSetPostRequest(name, backends));
+    default BackendSetPostResponse addBackendSet(int networkID, String name, String... backends) {
+        return addBackendSet(networkID, new BackendSetPostRequest(name, backends));
     }
 
     BackendSet getBackendSet(int networkID, int setID);

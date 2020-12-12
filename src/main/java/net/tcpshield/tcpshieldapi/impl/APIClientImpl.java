@@ -40,10 +40,11 @@ public class APIClientImpl implements APIClient {
     }
 
     @Override
-    public void addNetwork(NetworkPostRequest request) {
-        RestRequest.builder()
+    public NetworkPostRepsonse addNetwork(NetworkPostRequest request) {
+        return RestRequest.builder(NetworkPostRepsonse.class)
                 .url(APIConstants.NETWORKS_ENDPOINT)
                 .requestType(RequestType.POST)
+                .data(request)
                 .build()
                 .execute(client);
     }
@@ -100,11 +101,12 @@ public class APIClientImpl implements APIClient {
     }
 
     @Override
-    public void addDomain(int networkID, DomainPostRequest request) {
-        RestRequest.builder()
+    public DomainPostResponse addDomain(int networkID, DomainPostRequest request) {
+        return RestRequest.builder(DomainPostResponse.class)
                 .url(APIConstants.DOMAINS_ENDPOINT)
                 .pathVariable("networkId", String.valueOf(networkID))
                 .requestType(RequestType.POST)
+                .data(request)
                 .build()
                 .execute(client);
     }
@@ -188,11 +190,12 @@ public class APIClientImpl implements APIClient {
     }
 
     @Override
-    public void addBackendSet(int networkID, BackendSetPostRequest request) {
-        RestRequest.builder()
+    public BackendSetPostResponse addBackendSet(int networkID, BackendSetPostRequest request) {
+        return RestRequest.builder(BackendSetPostResponse.class)
                 .url(APIConstants.BACKENDS_ENDPOINT)
                 .pathVariable("networkId", String.valueOf(networkID))
                 .requestType(RequestType.POST)
+                .data(request)
                 .build()
                 .execute(client);
     }
