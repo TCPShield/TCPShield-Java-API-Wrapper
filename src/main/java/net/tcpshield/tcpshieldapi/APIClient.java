@@ -46,6 +46,14 @@ public interface APIClient {
 
     void deleteDomain(int networkID, int domainID);
 
+    boolean preverify(int networkID, DomainPreverifyRequest request);
+
+    default boolean preverify(int networkID, String domain) {
+        return preverify(networkID, new DomainPreverifyRequest(domain));
+    }
+
+    boolean verify(int networkID, int domainID);
+
     List<BackendSet> getBackendSets(int networkID);
 
     void addBackendSet(int networkID, BackendSetPostRequest request);

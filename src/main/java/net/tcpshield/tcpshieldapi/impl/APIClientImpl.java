@@ -146,6 +146,30 @@ public class APIClientImpl implements APIClient {
     }
 
     @Override
+    public boolean preverify(int networkID, DomainPreverifyRequest request) {
+        return RestRequest.builder(DomainPreverifyResponse.class)
+                .url(APIConstants.DOMAINS_PREVERIFY_ENDPOINT)
+                .pathVariable("networkId", String.valueOf(networkID))
+                .requestType(RequestType.POST)
+                .data(request)
+                .build()
+                .execute(client)
+                .getStatus() == 0;
+    }
+
+    @Override
+    public boolean verify(int networkID, int domainID) {
+        return RestRequest.builder(DomainVerifyResponse.class)
+                .url(APIConstants.DOMAIN_VERIFY_ENDPOINT)
+                .pathVariable("networkId", String.valueOf(networkID))
+                .pathVariable("domainId", String.valueOf(domainID))
+                .requestType(RequestType.GET)
+                .build()
+                .execute(client)
+                .getStatus() == 0;
+    }
+
+    @Override
     public List<BackendSet> getBackendSets(int networkID) {
         BackendSetsResponse response = RestRequest.builder(BackendSetsResponse.class)
                 .url(APIConstants.BACKENDS_ENDPOINT)
