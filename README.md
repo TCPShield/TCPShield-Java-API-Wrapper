@@ -5,8 +5,6 @@
 This is a Java wrapper for the official [TCPShield API](https://github.com/TCPShield/api-docs). \
 This wrapper supports every documented API endpoint, as seen in the [API Documentation](https://swagger.tcpshield.com).
 
-**Keep in mind this wrapper is still in development. Please create issues if you encounter any errors.**
-
 ## Download
 
 ### Option 1: Standalone Jar
@@ -77,6 +75,4 @@ We're more than happy to accept contributions! We welcome pull requests with ope
 ## ToDo
 
 * adding a repository for build tools like Gradle and Maven
-* adding testing
 * adding documentation
-* adding more examples
