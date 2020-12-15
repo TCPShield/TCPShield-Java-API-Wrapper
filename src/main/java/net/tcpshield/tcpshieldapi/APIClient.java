@@ -67,18 +67,10 @@ public interface APIClient {
 
     BackendSet getBackendSet(int networkID, int setID);
 
-    default BackendSet getBackendSet(Network network, int setID) {
-        return getBackendSet(network.getID(), setID);
-    }
-
     void patchBackendSet(int networkID, int setID, BackendSetPatchRequest request);
 
     default void patchBackendSet(int networkID, int setID, String name, String... backends) {
         patchBackendSet(networkID, setID, new BackendSetPatchRequest(name, backends));
-    }
-
-    default void patchBackendSet(int networkID, BackendSet backendSet) {
-        patchBackendSet(networkID, backendSet.getID(), backendSet.getName(), backendSet.getBackends().toArray(new String[0]));
     }
 
     void deleteBackendSet(int networkID, int setID);

@@ -4,13 +4,9 @@ import java.util.Date;
 
 public interface Domain {
 
-    Network getNetwork();
-
     int getID();
 
     String getName();
-
-    void setName(String name);
 
     int getBackendSetID();
 

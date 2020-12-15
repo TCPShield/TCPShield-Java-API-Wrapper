@@ -51,11 +51,6 @@ class NetworkImpl implements Network {
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public boolean isPremium() {
         return premium;
     }

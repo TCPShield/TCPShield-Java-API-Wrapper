@@ -9,8 +9,6 @@ public interface Network {
 
     String getName();
 
-    void setName(String name);
-
     boolean isPremium();
 
     String getProtectedCNAME();

@@ -38,11 +38,6 @@ class DomainImpl implements Domain {
     }
 
     @Override
-    public Network getNetwork() {
-        return null;
-    }
-
-    @Override
     public int getID() {
         return id;
     }
@@ -50,11 +45,6 @@ class DomainImpl implements Domain {
     @Override
     public String getName() {
         return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
