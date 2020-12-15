@@ -225,7 +225,7 @@ public class APIClientImpl implements APIClient {
                 .build()
                 .execute(client);
 
-        return new BackendSetImpl(response);
+        return response.getID() == 0 ? new BackendSetImpl(setID, response) : new BackendSetImpl(response);
     }
 
     @Override
