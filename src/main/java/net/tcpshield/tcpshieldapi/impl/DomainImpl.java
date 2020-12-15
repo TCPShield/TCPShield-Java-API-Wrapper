@@ -10,9 +10,9 @@ import java.util.Objects;
 class DomainImpl implements Domain {
 
     private final int id;
-    private String name;
+    private final String name;
     private final int backendSetID;
-    private boolean bac;
+    private final boolean bac;
     private final boolean verified;
     private final Date updatedAt;
     private final Date createdAt;
@@ -55,11 +55,6 @@ class DomainImpl implements Domain {
     @Override
     public boolean isBACEnabled() {
         return bac;
-    }
-
-    @Override
-    public void setBACEnabled(boolean bac) {
-        this.bac = bac;
     }
 
     @Override

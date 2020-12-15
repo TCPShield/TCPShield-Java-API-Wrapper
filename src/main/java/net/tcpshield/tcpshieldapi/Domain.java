@@ -12,8 +12,6 @@ public interface Domain {
 
     boolean isBACEnabled();
 
-    void setBACEnabled(boolean bac);
-
     boolean isVerified();
 
     Date getUpdatedAt();

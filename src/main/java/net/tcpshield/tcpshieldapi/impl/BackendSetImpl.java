@@ -9,8 +9,8 @@ import java.util.*;
 class BackendSetImpl implements BackendSet {
 
     private final int id;
-    private String name;
-    private List<String> backends;
+    private final String name;
+    private final List<String> backends;
 
     BackendSetImpl(int id, String name, List<String> backends) {
         this.id = id;
@@ -41,11 +41,6 @@ class BackendSetImpl implements BackendSet {
     @Override
     public List<String> getBackends() {
         return backends;
-    }
-
-    @Override
-    public void setBackends(List<String> backends) {
-        this.backends = backends;
     }
 
     @Override

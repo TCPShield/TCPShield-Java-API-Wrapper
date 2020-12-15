@@ -10,6 +10,4 @@ public interface BackendSet {
 
     List<String> getBackends();
 
-    void setBackends(List<String> backends);
-
 }

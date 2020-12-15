@@ -10,7 +10,7 @@ import java.util.Objects;
 class NetworkImpl implements Network {
 
     private final int id;
-    private String name;
+    private final String name;
     private final boolean premium;
     private final String protectedCNAME;
     private final String txtVerification;
