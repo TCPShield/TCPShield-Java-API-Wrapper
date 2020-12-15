@@ -18,4 +18,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+
+    systemProperty "testing.api-key", project.getProperty("testing.api-key")
+    systemProperty "testing.domain1", project.getProperty("testing.domain1")
+    systemProperty "testing.domain2", project.getProperty("testing.domain2")
 }
