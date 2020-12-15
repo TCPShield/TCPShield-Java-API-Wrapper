@@ -13,10 +13,13 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class RestClient {
 
+    private final Pattern HTTP_RESPONSE_CODE_EXCEPTION_PATTERN = Pattern.compile("^Server returned HTTP response code: (\\d+) for URL: .+$");
     private final String apiKey;
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -30,21 +33,34 @@ public class RestClient {
     }
 
     public <T> T makeRequest(RestRequest<T> restRequest) {
+        RestResponse<T> response = null;
+        int statusCode = -1;
         try {
-            RestResponse<T> response = internalRequest(restRequest);
-
-            int statusCode = response.getStatusCode();
-
-            switch (statusCode) {
-                case 403:
-                    throw new NoPermissionException();
-                case 404:
-                    throw new NotFoundException();
-                default:
-                    return response.getData();
-            }
+            response = internalRequest(restRequest);
+        } catch (FileNotFoundException e) { // 404
+            statusCode = 404;
         } catch (IOException e) {
-            throw new APIConnectionException(e);
+            String msg = e.getMessage();
+            Matcher matcher = HTTP_RESPONSE_CODE_EXCEPTION_PATTERN.matcher(msg);
+
+            if (!matcher.find()) throw new APIConnectionException(e);
+
+            statusCode = Integer.parseInt(matcher.group(1));
+        }
+
+        if (statusCode != 0 && response != null)
+            statusCode = response.getStatusCode();
+
+        switch (statusCode) {
+            case 403:
+                throw new NoPermissionException();
+            case 404:
+                throw new NotFoundException();
+            default:
+                if (response == null)
+                    throw new APIConnectionException("Response code unknown: " + statusCode + "; for request to " + restRequest.getURL());
+
+                return response.getData();
         }
     }
 
