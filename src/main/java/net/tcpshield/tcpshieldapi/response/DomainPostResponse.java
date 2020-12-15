@@ -29,11 +29,17 @@ public class DomainPostResponse {
 
         @JsonProperty
         private int id;
+        @JsonProperty
         private String name;
+        @JsonProperty("backend_set_id")
         private int setID;
+        @JsonProperty
         private boolean bac;
+        @JsonProperty
         private boolean verified;
+        @JsonProperty("updated_at")
         private Date updatedAt;
+        @JsonProperty("created_at")
         private Date createdAt;
 
         public int getID() {

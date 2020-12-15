@@ -19,6 +19,10 @@ public class BackendSetResponse {
     private Date createdAt;
     @JsonProperty
     private String[] backends;
+    @JsonProperty
+    private int status;
+    @JsonProperty
+    private String message;
 
     public int getID() {
         return id;
@@ -42,5 +46,13 @@ public class BackendSetResponse {
 
     public String[] getBackends() {
         return backends;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

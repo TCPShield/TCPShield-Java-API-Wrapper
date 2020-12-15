@@ -19,7 +19,11 @@ class BackendSetImpl implements BackendSet {
     }
 
     BackendSetImpl(BackendSetResponse response) {
-        this.id = response.getID();
+        this(response.getID(), response);
+    }
+
+    BackendSetImpl(int id, BackendSetResponse response) {
+        this.id = id;
         this.name = response.getName();
         this.backends = new ArrayList<>(response.getBackends() == null ? Collections.emptyList() : Arrays.asList(response.getBackends()));
     }
@@ -27,11 +31,6 @@ class BackendSetImpl implements BackendSet {
     @Override
     public int getID() {
         return id;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override

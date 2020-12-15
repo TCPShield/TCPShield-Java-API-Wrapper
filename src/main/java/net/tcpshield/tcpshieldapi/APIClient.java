@@ -22,7 +22,7 @@ public interface APIClient {
     void patchNetwork(int id, NetworkPatchRequest request);
 
     default void patchNetwork(int id, String name, int connectionsPerSecondThreshold, int clientBanSeconds, int clientAllowSeconds, String mitigationMessage) {
-        patchNetwork(id, new NetworkPatchRequest(name, connectionsPerSecondThreshold, clientBanSeconds, clientAllowSeconds, mitigationMessage));
+        patchNetwork(id, new NetworkPatchRequest(id, name, connectionsPerSecondThreshold, clientBanSeconds, clientAllowSeconds, mitigationMessage));
     }
 
     default void patchNetwork(Network network, MitigationSettings mitigationSettings) {
