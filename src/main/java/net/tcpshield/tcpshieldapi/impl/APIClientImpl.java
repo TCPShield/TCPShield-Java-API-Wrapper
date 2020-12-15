@@ -4,6 +4,7 @@ import net.tcpshield.tcpshieldapi.APIClient;
 import net.tcpshield.tcpshieldapi.BackendSet;
 import net.tcpshield.tcpshieldapi.Domain;
 import net.tcpshield.tcpshieldapi.Network;
+import net.tcpshield.tcpshieldapi.exception.status.NoPermissionException;
 import net.tcpshield.tcpshieldapi.request.*;
 import net.tcpshield.tcpshieldapi.response.*;
 import net.tcpshield.tcpshieldapi.rest.APIConstants;
@@ -155,26 +156,34 @@ public class APIClientImpl implements APIClient {
 
     @Override
     public boolean preverify(int networkID, DomainPreverifyRequest request) {
-        return RestRequest.builder(DomainPreverifyResponse.class)
-                .url(APIConstants.DOMAINS_PREVERIFY_ENDPOINT)
-                .pathVariable("networkId", String.valueOf(networkID))
-                .requestType(RequestType.POST)
-                .data(request)
-                .build()
-                .execute(client)
-                .getStatus() == 0;
+        try {
+            return RestRequest.builder(DomainPreverifyResponse.class)
+                    .url(APIConstants.DOMAINS_PREVERIFY_ENDPOINT)
+                    .pathVariable("networkId", String.valueOf(networkID))
+                    .requestType(RequestType.POST)
+                    .data(request)
+                    .build()
+                    .execute(client)
+                    .getStatus() == 0;
+        } catch (NoPermissionException e) {
+            return false;
+        }
     }
 
     @Override
     public boolean verify(int networkID, int domainID) {
-        return RestRequest.builder(DomainVerifyResponse.class)
-                .url(APIConstants.DOMAIN_VERIFY_ENDPOINT)
-                .pathVariable("networkId", String.valueOf(networkID))
-                .pathVariable("domainId", String.valueOf(domainID))
-                .requestType(RequestType.GET)
-                .build()
-                .execute(client)
-                .getStatus() == 0;
+        try {
+            return RestRequest.builder(DomainVerifyResponse.class)
+                    .url(APIConstants.DOMAIN_VERIFY_ENDPOINT)
+                    .pathVariable("networkId", String.valueOf(networkID))
+                    .pathVariable("domainId", String.valueOf(domainID))
+                    .requestType(RequestType.GET)
+                    .build()
+                    .execute(client)
+                    .getStatus() == 0;
+        } catch (NoPermissionException e) {
+            return false;
+        }
     }
 
     @Override
