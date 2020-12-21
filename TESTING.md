@@ -12,7 +12,8 @@ We need to create a custom network with specific variables as that network is us
 **Name**: `TestNetwork`<br>
 **Domains:** `unverifiedtestdomain.com` and one custom domain with the verification TXT record already setup; 
 both domains pointing to the backend set `TestSet`<br>
-**Backend Sets:** `TestSet` with the backends `127.0.0.1:25565` and `127.0.0.1:25566`
+**Backend Sets:** `TestSet` with the backends `127.0.0.1:25565` and `127.0.0.1:25566`<br>
+**Mitigation Settings:** CPS: `10 c/s`; Ban Seconds: `70`; Allow Seconds: `500`; Mitigation Message: `TestMitigationMessage` 
 
 ## gradle.properties
 ```
