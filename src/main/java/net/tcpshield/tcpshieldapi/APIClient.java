@@ -19,12 +19,51 @@ public interface APIClient {
 
     Network getNetwork(int id);
 
+    /**
+     * Sets the network to the specified settings.
+     *
+     * @param id      the network id
+     * @param request the request which is to be executed
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NoPermissionException if your plan doesn't have the capability to patch the network settings
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NotFoundException     if the network can't be found
+     * @see NetworkPatchRequest
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, String, int, int, int, String)
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(Network, MitigationSettings)
+     */
     void patchNetwork(int id, NetworkPatchRequest request);
 
+    /**
+     * Sets the network to the specified settings.
+     *
+     * @param id                            the network id
+     * @param name                          the name of the network; max. length: 50 characters
+     * @param connectionsPerSecondThreshold how many total connections your server should receive before TCPShield starts mitigating; 1 <= x <= 100
+     * @param clientBanSeconds              total amount of time blocked attempts should be banned for; 60 <= x <= 3600
+     * @param clientAllowSeconds            total amount of time valid connections should be accepted; 30 <= x <= 600
+     * @param mitigationMessage             the message to be displayed after successful validation; max. length: 489 characters
+     * @throws IllegalArgumentException                                          if the conditions for the parameters aren't met
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NoPermissionException if your plan doesn't have the capability to patch the network settings
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NotFoundException     if the network can't be found
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, NetworkPatchRequest)
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, String, int, int, int, String)
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(Network, MitigationSettings)
+     */
     default void patchNetwork(int id, String name, int connectionsPerSecondThreshold, int clientBanSeconds, int clientAllowSeconds, String mitigationMessage) {
         patchNetwork(id, new NetworkPatchRequest(id, name, connectionsPerSecondThreshold, clientBanSeconds, clientAllowSeconds, mitigationMessage));
     }
 
+    /**
+     * Sets the mitigation settings of the network to the specified mitigation settings
+     *
+     * @param network            the network to be patched
+     * @param mitigationSettings the new mitigation settings
+     * @throws IllegalArgumentException                                          if the conditions for the parameters aren't met
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NoPermissionException if your plan doesn't have the capability to patch the network settings
+     * @throws net.tcpshield.tcpshieldapi.exception.status.NotFoundException     if the network can't be found
+     * @see MitigationSettings
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, NetworkPatchRequest)
+     * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, String, int, int, int, String)
+     */
     default void patchNetwork(Network network, MitigationSettings mitigationSettings) {
         patchNetwork(network.getID(), network.getName(), mitigationSettings.getConnectionsPerSecondThreshold(), mitigationSettings.getClientBanSeconds(), mitigationSettings.getClientAllowSeconds(), mitigationSettings.getMitigationMessage());
     }

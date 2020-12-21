@@ -25,6 +25,9 @@ class MitigationSettingsImpl implements MitigationSettings {
 
     @Override
     public void setConnectionsPerSecondThreshold(int connectionsPerSecondThreshold) {
+        if (1 > connectionsPerSecondThreshold || connectionsPerSecondThreshold > 100)
+            throw new IllegalArgumentException("connectionsPerSecondThreshold not between 1 and 100. Provided value: \"" + connectionsPerSecondThreshold + "\"");
+
         this.connectionsPerSecondThreshold = connectionsPerSecondThreshold;
     }
 
@@ -35,6 +38,9 @@ class MitigationSettingsImpl implements MitigationSettings {
 
     @Override
     public void setClientBanSeconds(int clientBanSeconds) {
+        if (60 > clientBanSeconds || clientBanSeconds > 3600)
+            throw new IllegalArgumentException("clientBanSeconds not between 30 and 3600. Provided value: \"" + clientBanSeconds + "\"");
+
         this.clientBanSeconds = clientBanSeconds;
     }
 
@@ -45,6 +51,9 @@ class MitigationSettingsImpl implements MitigationSettings {
 
     @Override
     public void setClientAllowSeconds(int clientAllowSeconds) {
+        if (30 > clientAllowSeconds || clientAllowSeconds > 600)
+            throw new IllegalArgumentException("clientAllowSeconds not between 30 and 600. Provided value: \"" + clientAllowSeconds + "\"");
+
         this.clientAllowSeconds = clientAllowSeconds;
     }
 
@@ -55,6 +64,9 @@ class MitigationSettingsImpl implements MitigationSettings {
 
     @Override
     public void setMitigationMessage(String mitigationMessage) {
+        if (mitigationMessage.length() > 500 - "{\"text\":\"\"}".length()) // 11 less characters
+            throw new IllegalArgumentException("mitigationMessage cannot be longer than 489 characters. Provided value: \"" + mitigationMessage + "\" (" + " characters)");
+
         this.mitigationMessage = mitigationMessage;
     }
 
