@@ -71,7 +71,7 @@ If any help with the usage of the API is needed, feel free to contact us on our 
 ## Contributions
 
 We're more than happy to accept contributions! We welcome pull requests with open arms.<br>
-In order to get testing to work, follow the instructions outlined [here](README.md).
+In order to get testing to work, follow the instructions outlined [here](TESTING.md).
 
 ## ToDo
 
