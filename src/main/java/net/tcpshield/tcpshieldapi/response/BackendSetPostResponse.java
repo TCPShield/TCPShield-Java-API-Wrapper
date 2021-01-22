@@ -31,6 +31,21 @@ public class BackendSetPostResponse {
         public int getID() {
             return id;
         }
+
+        @Override
+        public String toString() {
+            return "Data{" +
+                    "id=" + id +
+                    '}';
+        }
     }
 
+    @Override
+    public String toString() {
+        return "BackendSetPostResponse{" +
+                "data=" + data +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

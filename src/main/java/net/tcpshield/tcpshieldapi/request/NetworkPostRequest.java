@@ -23,4 +23,11 @@ public class NetworkPostRequest {
 
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "NetworkPostRequest{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

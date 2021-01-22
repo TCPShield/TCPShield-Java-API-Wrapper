@@ -73,4 +73,21 @@ public class NetworkResponse {
     public Date getCreatedAt() {
         return createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "NetworkResponse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", premium=" + premium +
+                ", protectedCNAME='" + protectedCNAME + '\'' +
+                ", txtVerification='" + txtVerification + '\'' +
+                ", connectionsPerSecondThreshold=" + connectionsPerSecondThreshold +
+                ", clientBanSeconds=" + clientBanSeconds +
+                ", clientAllowSeconds=" + clientAllowSeconds +
+                ", mitigationMessage='" + mitigationMessage + '\'' +
+                ", updatedAt=" + updatedAt +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

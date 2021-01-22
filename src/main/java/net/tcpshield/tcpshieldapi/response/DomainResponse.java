@@ -49,4 +49,17 @@ public class DomainResponse {
     public Date getCreatedAt() {
         return createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "DomainResponse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", backendSetID=" + backendSetID +
+                ", bac=" + bac +
+                ", verified=" + verified +
+                ", updatedAt=" + updatedAt +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

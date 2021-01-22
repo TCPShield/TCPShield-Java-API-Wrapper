@@ -23,6 +23,15 @@ public class NetworkPostRepsonse {
         return status;
     }
 
+    @Override
+    public String toString() {
+        return "NetworkPostRepsonse{" +
+                "data=" + data +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
     public static class Data {
 
         @JsonProperty("network_id")
@@ -31,6 +40,12 @@ public class NetworkPostRepsonse {
         public int getNetworkID() {
             return networkID;
         }
-    }
 
+        @Override
+        public String toString() {
+            return "Data{" +
+                    "networkID=" + networkID +
+                    '}';
+        }
+    }
 }

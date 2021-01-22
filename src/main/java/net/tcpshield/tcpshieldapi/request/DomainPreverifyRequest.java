@@ -10,4 +10,11 @@ public class DomainPreverifyRequest {
     public DomainPreverifyRequest(String domain) {
         this.domain = domain;
     }
+
+    @Override
+    public String toString() {
+        return "DomainPreverifyRequest{" +
+                "domain='" + domain + '\'' +
+                '}';
+    }
 }
