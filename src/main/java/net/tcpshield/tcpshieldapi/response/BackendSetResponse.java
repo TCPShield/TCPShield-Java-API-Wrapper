@@ -17,6 +17,8 @@ public class BackendSetResponse {
     private Date updatedAt;
     @JsonProperty("created_at")
     private Date createdAt;
+    @JsonProperty("deleted_at")
+    private Date deletedAt;
     @JsonProperty
     private String[] backends;
     @JsonProperty
@@ -42,6 +44,10 @@ public class BackendSetResponse {
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
     }
 
     public String[] getBackends() {
