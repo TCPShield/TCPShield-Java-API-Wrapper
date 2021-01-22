@@ -17,4 +17,11 @@ public class DomainPreverifyResponse {
         return status;
     }
 
+    @Override
+    public String toString() {
+        return "DomainPreverifyResponse{" +
+                "message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -3,6 +3,7 @@ package net.tcpshield.tcpshieldapi.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class BackendSetResponse {
@@ -60,5 +61,20 @@ public class BackendSetResponse {
 
     public String getMessage() {
         return message;
+    }
+
+    @Override
+    public String toString() {
+        return "BackendSetResponse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", active=" + active +
+                ", updatedAt=" + updatedAt +
+                ", createdAt=" + createdAt +
+                ", deletedAt=" + deletedAt +
+                ", backends=" + Arrays.toString(backends) +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

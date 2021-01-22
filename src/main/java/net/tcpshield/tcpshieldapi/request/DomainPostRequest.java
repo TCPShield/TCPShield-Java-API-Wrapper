@@ -16,4 +16,13 @@ public class DomainPostRequest {
         this.backendSetID = backendSetID;
         this.bac = bac;
     }
+
+    @Override
+    public String toString() {
+        return "DomainPostRequest{" +
+                "name='" + name + '\'' +
+                ", backendSetID=" + backendSetID +
+                ", bac=" + bac +
+                '}';
+    }
 }

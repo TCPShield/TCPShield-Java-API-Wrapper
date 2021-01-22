@@ -23,4 +23,12 @@ public class DomainVerifyResponse {
         return status;
     }
 
+    @Override
+    public String toString() {
+        return "DomainVerifyResponse{" +
+                "message='" + message + '\'' +
+                ", error='" + error + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

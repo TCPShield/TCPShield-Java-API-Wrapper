@@ -57,4 +57,16 @@ public class NetworkPatchRequest {
         this.clientAllowSeconds = clientAllowSeconds;
         this.mitigationMessage = "{\"text\":\"" + mitigationMessage + "\"}";
     }
+
+    @Override
+    public String toString() {
+        return "NetworkPatchRequest{" +
+                "networkID=" + networkID +
+                ", name='" + name + '\'' +
+                ", connectionsPerSecondThreshold=" + connectionsPerSecondThreshold +
+                ", clientBanSeconds=" + clientBanSeconds +
+                ", clientAllowSeconds=" + clientAllowSeconds +
+                ", mitigationMessage='" + mitigationMessage + '\'' +
+                '}';
+    }
 }

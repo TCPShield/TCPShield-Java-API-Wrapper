@@ -17,12 +17,12 @@ public interface APIClient {
         return addNetwork(new NetworkPostRequest(name));
     }
 
-    Network getNetwork(int id);
+    Network getNetwork(int networkID);
 
     /**
      * Sets the network to the specified settings.
      *
-     * @param id      the network id
+     * @param networkID      the network id
      * @param request the request which is to be executed
      * @throws net.tcpshield.tcpshieldapi.exception.status.NoPermissionException if your plan doesn't have the capability to patch the network settings
      * @throws net.tcpshield.tcpshieldapi.exception.status.NotFoundException     if the network can't be found
@@ -30,12 +30,12 @@ public interface APIClient {
      * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, String, int, int, int, String)
      * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(Network, MitigationSettings)
      */
-    void patchNetwork(int id, NetworkPatchRequest request);
+    void patchNetwork(int networkID, NetworkPatchRequest request);
 
     /**
      * Sets the network to the specified settings.
      *
-     * @param id                            the network id
+     * @param networkID                            the network id
      * @param name                          the name of the network; max. length: 50 characters
      * @param connectionsPerSecondThreshold how many total connections your server should receive before TCPShield starts mitigating; 1 <= x <= 100
      * @param clientBanSeconds              total amount of time blocked attempts should be banned for; 60 <= x <= 3600
@@ -48,8 +48,8 @@ public interface APIClient {
      * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(int, String, int, int, int, String)
      * @see net.tcpshield.tcpshieldapi.APIClient#patchNetwork(Network, MitigationSettings)
      */
-    default void patchNetwork(int id, String name, int connectionsPerSecondThreshold, int clientBanSeconds, int clientAllowSeconds, String mitigationMessage) {
-        patchNetwork(id, new NetworkPatchRequest(id, name, connectionsPerSecondThreshold, clientBanSeconds, clientAllowSeconds, mitigationMessage));
+    default void patchNetwork(int networkID, String name, int connectionsPerSecondThreshold, int clientBanSeconds, int clientAllowSeconds, String mitigationMessage) {
+        patchNetwork(networkID, new NetworkPatchRequest(networkID, name, connectionsPerSecondThreshold, clientBanSeconds, clientAllowSeconds, mitigationMessage));
     }
 
     /**
@@ -68,7 +68,7 @@ public interface APIClient {
         patchNetwork(network.getID(), network.getName(), mitigationSettings.getConnectionsPerSecondThreshold(), mitigationSettings.getClientBanSeconds(), mitigationSettings.getClientAllowSeconds(), mitigationSettings.getMitigationMessage());
     }
 
-    void deleteNetwork(int id);
+    void deleteNetwork(int networkID);
 
     List<Domain> getDomains(int networkID);
 

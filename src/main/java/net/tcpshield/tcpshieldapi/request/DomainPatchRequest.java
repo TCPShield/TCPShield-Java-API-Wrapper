@@ -16,4 +16,13 @@ public class DomainPatchRequest {
         this.backendSetID = backendSetID;
         this.bac = bac;
     }
+
+    @Override
+    public String toString() {
+        return "DomainPatchRequest{" +
+                "name='" + name + '\'' +
+                ", backendSetID=" + backendSetID +
+                ", bac=" + bac +
+                '}';
+    }
 }

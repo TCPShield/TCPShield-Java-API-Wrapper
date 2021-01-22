@@ -69,6 +69,27 @@ public class DomainPostResponse {
         public Date getCreatedAt() {
             return createdAt;
         }
+
+        @Override
+        public String toString() {
+            return "Data{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", setID=" + setID +
+                    ", bac=" + bac +
+                    ", verified=" + verified +
+                    ", updatedAt=" + updatedAt +
+                    ", createdAt=" + createdAt +
+                    '}';
+        }
     }
 
+    @Override
+    public String toString() {
+        return "DomainPostResponse{" +
+                "data=" + data +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
