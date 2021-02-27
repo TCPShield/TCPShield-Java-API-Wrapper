@@ -18,7 +18,7 @@ to your buildpath.
 Using build automation tools like [Gradle](https://gradle.org/) or [Maven](https://maven.apache.org/) streamlines the
 usage of our API.
 
-*TODO*
+see https://jitpack.io/#TCPShield/TCPShield-Java-API-Wrapper/-SNAPSHOT
 
 ## Example
 
