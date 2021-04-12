@@ -79,6 +79,7 @@ public class RestClient {
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Content-Length", data == null ? "0" : String.valueOf(data.length()));
             connection.setRequestProperty("Content-Language", "en-US");
+            connection.setRequestProperty("User-Agent","FreddiCloudFixForTCPShield");
 
             connection.setDoInput(true);
             connection.setDoOutput(true);
